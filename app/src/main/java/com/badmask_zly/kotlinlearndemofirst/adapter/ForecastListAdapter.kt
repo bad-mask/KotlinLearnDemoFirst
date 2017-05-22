@@ -1,27 +1,76 @@
 package com.badmask_zly.kotlinlearndemofirst.adapter
 
 import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import com.badmask_zly.kotlinlearndemofirst.R
+import com.badmask_zly.kotlinlearndemofirst.ctx
 import com.badmask_zly.kotlinlearndemofirst.domain.model
+import com.squareup.picasso.Picasso
+import org.jetbrains.anko.find
 
 /**
  * Created by badmask_zly on 2017/5/22.
  */
-class ForecastListAdapter(val weekForecast:model.ForecastList):RecyclerView.Adapter<ForecastListAdapter.ViewHolder>() {
-    override fun getItemCount(): Int =weekForecast.dailyForecast.size
+class ForecastListAdapter(val weekForecast: model.ForecastList, val itemClick: OnItemClickListener)
+    : RecyclerView.Adapter<ForecastListAdapter.ViewHolder>() {
+    override fun getItemCount(): Int = weekForecast.size()
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        with(weekForecast.dailyForecast[position]){
-            holder.textView.text="$date-$description-$high-/$low"
+        holder.bindForecast(weekForecast[position])
+//        with(weekForecast[position]) {
+//            // holder.textView.text = "$date-$description-$high/$low"
+//        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+//        return ViewHolder(TextView(parent.context))
+        val view = LayoutInflater.from(parent.ctx).inflate(R.layout.item_forecast, parent, false)
+        return ViewHolder(view, itemClick)
+    }
+
+    //class ViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
+    /**
+     * 使用新的ViewHolder
+     */
+    class ViewHolder(view: View, val itemClick: OnItemClickListener) : RecyclerView.ViewHolder(view) {
+        private val iconView: ImageView
+        private val dateView: TextView
+        private val descriptionView: TextView
+        private val maxTemperatureView: TextView
+        private val minTemperatureView: TextView
+
+        init {
+            iconView = view.find(R.id.icon)
+            dateView = view.find(R.id.date)
+            descriptionView = view.find(R.id.description)
+            maxTemperatureView = view.find(R.id.maxTemperature)
+            minTemperatureView = view.find(R.id.minTemperature)
         }
+
+        fun bindForecast(forecast: model.Forecast) {
+            with(forecast) {
+                Picasso.with(itemView.ctx).load(iconUrl).into(iconView)
+                dateView.text = date
+                descriptionView.text = description
+                maxTemperatureView.text = "${high.toString()}"
+                minTemperatureView.text = "${low.toString()}"
+                itemView.setOnClickListener { itemClick(forecast) }
+            }
+        }
+
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder? {
-        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        return ViewHolder(TextView(parent.context))
-    }
 
-    class ViewHolder(val textView: TextView):RecyclerView.ViewHolder(textView)
+    /**
+     * listener 可以被以下两种方式调用：
+     * itemClick.invoke(forecast)
+     * itemClick(forecast)
+     */
+    public interface OnItemClickListener {
+        operator fun invoke(forecast: model.Forecast)
+    }
 }

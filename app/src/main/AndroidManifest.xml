@@ -14,9 +14,9 @@
 
         <!-- 每一次提交，都是学习了不同的内容，都会多一个新的Activity，直接启动此新的Activity -->
         <activity android:name=".MainActivity" />
-        <activity android:name=".SecondActivity">
-        </activity>
-        <activity android:name=".ThirdActivity">
+        <activity android:name=".SecondActivity"></activity>
+        <activity android:name=".ThirdActivity"></activity>
+        <activity android:name=".ForthActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

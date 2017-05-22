@@ -19,7 +19,7 @@ class ThirdActivity : AppCompatActivity() {
 
         async(){
            val result = RequestForecastCommand("BeiJing").execute()
-            uiThread { forecastList.adapter=ForecastListAdapter(result) }
+           // uiThread { forecastList.adapter=ForecastListAdapter(result) }
         }
     }
 }
