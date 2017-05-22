@@ -31,4 +31,6 @@ class MainActivity : AppCompatActivity() {
         forecastList.adapter = ForecaseListAdapter2(items)
 
     }
+
+   
 }
