@@ -30,12 +30,14 @@ class ForthActivity : AppCompatActivity() {
         async() {
             val result = RequestForecastCommand("BeiJing").execute()
             uiThread {
-                forecastList.adapter = ForecastListAdapter(result,
-                        object : ForecastListAdapter.OnItemClickListener {
-                            override fun invoke(forecast: model.Forecast) {
-                                toast(forecast.date)
-                            }
-                        })
+               // forecastList.adapter = ForecastListAdapter(result ){forecast -> toast(forecast.date) }
+
+                /**
+                 * 上面的代码还可以简化
+                 * 如果这个函数只接收一个参数，那我们可以使用 it 引用，而不用去指定左边的参数
+                 */
+                val adapter =ForecastListAdapter(result){toast(it.date)}
+                forecastList.adapter=adapter
             }
         }
 
