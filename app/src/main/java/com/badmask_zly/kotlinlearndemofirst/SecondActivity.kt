@@ -15,6 +15,10 @@ class SecondActivity : AppCompatActivity() {
         async() {
             Request("http://www.baidu.com").run()
             uiThread { longToast("Request performed") }
+            /**UIThread 有一个很不错的一点就是可以以来调用者。如果它是被一个 Activity 调用的，
+             * 那么如果 activity.isFinishing() 返回 true，则 uiThread 不会执行，这样就不会在
+             * Activity 销毁的时候遇到崩溃的情况了
+             */
         }
     }
 }

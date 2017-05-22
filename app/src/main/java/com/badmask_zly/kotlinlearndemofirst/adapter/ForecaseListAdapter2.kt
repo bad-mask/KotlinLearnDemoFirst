@@ -1,4 +1,4 @@
-package com.badmask_zly.kotlinlearndemofirst
+package com.badmask_zly.kotlinlearndemofirst.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.View

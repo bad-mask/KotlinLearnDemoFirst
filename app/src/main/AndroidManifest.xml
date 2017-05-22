@@ -11,8 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
+
+        <!-- 每一次提交，都是学习了不同的内容，都会多一个新的Activity，直接启动此新的Activity -->
+        <activity android:name=".MainActivity" />
         <activity android:name=".SecondActivity">
+        </activity>
+        <activity android:name=".ThirdActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

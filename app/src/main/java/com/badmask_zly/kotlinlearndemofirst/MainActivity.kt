@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_main.*
+import com.badmask_zly.kotlinlearndemofirst.adapter.ForecaseListAdapter2
 
 /**
  * 可以使用一个函数 listOf 创建一个常量的 List
@@ -32,5 +32,5 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-   
+
 }
