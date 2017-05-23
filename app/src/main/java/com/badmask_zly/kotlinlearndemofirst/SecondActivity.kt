@@ -2,6 +2,7 @@ package com.badmask_zly.kotlinlearndemofirst
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.badmask_zly.kotlinlearndemofirst.datebase.ForecastDbHelper
 import org.jetbrains.anko.async
 import org.jetbrains.anko.longToast
 import org.jetbrains.anko.uiThread
@@ -30,6 +31,10 @@ class SecondActivity : AppCompatActivity() {
 //                "dp" to 240,
 //                "deviceName" to "mydevice"
 //        ))
+
+//        当 ForecastDbHelper 注入依赖后，我们就有两种方式来创建这个类
+//        val dbHelper1 = ForecastDbHelper()
+//        val dbHelper2 = ForecastDbHelper(this)
 
 
     }
