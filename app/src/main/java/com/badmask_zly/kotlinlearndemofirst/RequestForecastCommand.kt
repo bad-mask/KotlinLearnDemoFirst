@@ -10,7 +10,6 @@ import com.badmask_zly.kotlinlearndemofirst.domain.model
  */
 class RequestForecastCommand(val zipCode: String) : Command<model.ForecastList> {
     override fun execute(): model.ForecastList {
-        // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         val forecastRequest = ForecastRequest(zipCode)
         return ForecastDataMapper().convertFromDataModel(forecastRequest.execute())
     }
