@@ -1,4 +1,4 @@
-package com.badmask_zly.kotlinlearndemofirst.datebase
+package com.badmask_zly.kotlinlearndemofirst.db
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase

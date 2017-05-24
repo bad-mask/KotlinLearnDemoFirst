@@ -3,11 +3,6 @@ package com.badmask_zly.kotlinlearndemofirst
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.badmask_zly.kotlinlearndemofirst.datebase.ForecastDbHelper
-import org.jetbrains.anko.async
-import org.jetbrains.anko.longToast
-import org.jetbrains.anko.uiThread
-import kotlin.properties.ReadWriteProperty
 
 
 class SecondActivity : AppCompatActivity() {
