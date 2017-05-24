@@ -37,7 +37,21 @@ class SecondActivity : AppCompatActivity() {
         //exercise_YSCZF()
         //exercise_YS()
         // exercise_SCCZF()
-        exercise_SXCZF()
+        //exercise_SXCZF()
+        val a: Int? = null
+        a.toString()
+
+//        val b: Int? = null
+//        b!!.toString()//执行 a 的那段代码不会崩溃，但是执行 b 的这段代码会崩溃
+
+//        val test = NullTest()
+//        val myObject: Any = test.getObject()
+        /**
+         * 我们会发现在 getObject 函数上会显示一个警告。但是这只是从现在才开始的编译器检查，并且它还不认识 Android 注解，
+         * 所以我们需要花更多的时间来等待一个更智能的方式。
+         */
+
+
     }
 
     /**
